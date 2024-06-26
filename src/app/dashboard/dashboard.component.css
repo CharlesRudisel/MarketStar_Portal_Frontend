@@ -1,0 +1,64 @@
+/* H1 Styling */
+.dashboard_body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+  
+ 
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header img {
+  height: 60px;
+}
+
+.header div {
+  text-align: right;
+}
+
+.header div h2 {
+  margin: 0;
+}
+
+.header div p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.dashboard {
+  width:100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.dashboard h2 {
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  
+}
+
+.button {
+  padding: 50px 20px;
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+
+}

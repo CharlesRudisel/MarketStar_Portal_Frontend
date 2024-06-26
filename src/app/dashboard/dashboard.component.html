@@ -1,0 +1,26 @@
+
+
+<div class="dashboard_body">
+    <div class="header">
+        <img src="assets/marketStar_logo.png" alt="MarketStar Solutions Logo">
+        <div>
+            <h1>Welcome, {{ username }}!</h1>
+            <p>example writer</p>
+        </div>
+    </div>
+    
+    <div class="dashboard">
+        <h2>Green Star Dashboard</h2>
+        <div class="buttons">
+            
+            <button class="button" [routerLink]="['/available-assignments']">Available Assignments</button>
+            <button class="button" [routerLink]="['/pending-assignments']">Pending Assignments</button>
+            <button class="button" [routerLink]="['/completed-assignments']">Completed Assignments</button>
+            <button class="button" [routerLink]="['/my-assignments']">MY Assignments</button>
+            <button class="button" [routerLink]="['/company-backgrounds']">Company Backgrounds</button>
+            <button class="button" [routerLink]="['/grades']">Grades</button>
+            <button class="button" [routerLink]="['/writer-success']">Writer Success</button>
+        
+        </div>
+    </div> 
+</div>
