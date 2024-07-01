@@ -14,17 +14,19 @@ import {Router} from "@angular/router";
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  credentials: any = {};
+  username: string = '';
+  password: string = '';
 
-  constructor(private authService: AuthService, private router:Router) {
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  onLogin() {
-    this.authService.login(this.credentials).subscribe(() => {
-      console.log("login")
-      this.router.navigate(['/dashboard'])
-    }, error => {
-      console.error('Login error', error);
-    })
+  onLogin(): void {
+    this.authService.login({ username: this.username, password: this.password }).subscribe(
+      () => {
+        this.router.navigate(['/dashboard']);
+      },
+      error => {
+        console.error('Login failed', error);
+      }
+    );
   }
 }

@@ -31,12 +31,13 @@
     font-size: 14px;
 }
 
-.assignments {
+.assignments-container {
     text-align: center;
     margin-top: 20px;
+    width: 100%;
 }
 
-.assignments h2 {
+.assignments-container h2 {
     margin-bottom: 20px;
 }
 
@@ -76,6 +77,7 @@
     font-size: 16px;
     margin-top: 10px;
 }
+
 .back-link {
     position: absolute;
     bottom: 20px;

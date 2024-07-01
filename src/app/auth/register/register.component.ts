@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
-import {FormsModule} from "@angular/forms";
-import {Router} from "@angular/router";
-import {AuthService} from "../../services/auth.service";
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
-  standalone: true,
-  imports: [
-    FormsModule
-  ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css'],
+  standalone: true,
+  imports: [CommonModule, FormsModule]  // Add FormsModule here
 })
 export class RegisterComponent {
-  user: any = {};
+  username: string = '';
+  email: string = '';
+  password: string = '';
 
-  constructor(private authService: AuthService, private router:Router) {
-  }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  onRegister() {
-
-    this.authService.register(this.user).subscribe(() => {
-      this.router.navigate(['/login']);
-    }, error => {
-      console.error('Registration error:', error);
-    })
+  onRegister(): void {
+    this.authService.register({ username: this.username, email: this.email, password: this.password }).subscribe(
+      () => {
+        this.router.navigate(['/login']);
+      },
+      error => {
+        console.error('Registration failed', error);
+      }
+    );
   }
 }

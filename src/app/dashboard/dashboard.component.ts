@@ -12,10 +12,7 @@ import { RouterModule } from '@angular/router';
 export class DashboardComponent {
   username: string = '';
 
-
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {
-    this.username = this.authService.getUsername();
+  constructor(private authService: AuthService) {
+   // this.username = this.authService.getUsername() || ''; // Provide a default value if null
   }
 }
