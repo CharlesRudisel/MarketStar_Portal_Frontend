@@ -25,9 +25,10 @@ export class AvailableAssignmentsComponent implements OnInit {
   loadAssignments(): void {
     this.availableAssignmentsService.getAllAssignments().subscribe(
       data => {
+        console.log('Raw Data:', data);
         this.assignments = data;
         this.filterAvailableAssignments();
-        console.log('Assignments loaded:', this.availableAssignments);
+        console.log('Filtered Assignments:', this.availableAssignments);
       },
       error => {
         console.error('Error loading assignments:', error);

@@ -19,7 +19,7 @@ interface Credentials {
 })
 export class AuthService {
 
-  private baseUrl = 'http://localhost:8080/auth';
+  private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/auth';
   private tokenKey = 'authToken';
 
   constructor(private http: HttpClient) { }
@@ -29,23 +29,28 @@ export class AuthService {
   }
 
   login(credentials: Credentials): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, credentials).pipe(
+    return this.http.post(`${this.baseUrl}/authenticate`, credentials).pipe(
       tap((response: any) => {
-        const token = response.token;
+        console.log('Response from backend:', response);
+        const token = response.accessToken;
+        console.log('Received token:', token); // Debugging line
         this.setToken(token);
       })
     );
   }
 
   private setToken(token: string | null): void {
-    if (token) {
-      localStorage.setItem(this.tokenKey, token);
-    } else {
-      localStorage.removeItem(this.tokenKey);
-    }
+  if (token) {
+    console.log('Storing token:', token); // Debugging line
+    localStorage.setItem(this.tokenKey, token);
+  } else {
+    console.error('No token to store');
+    localStorage.removeItem(this.tokenKey);
   }
+}
 
   getToken(): string | null {
+    console.log("Get token function activated: " + this.tokenKey)
     return localStorage.getItem(this.tokenKey);
   }
 
