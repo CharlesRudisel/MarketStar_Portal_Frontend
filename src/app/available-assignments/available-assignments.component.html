@@ -15,6 +15,7 @@
                 <h3>{{ assignment.clientName }}</h3>
                 <p><strong>Topic:</strong> {{ assignment.blogTopic }}</p>
                 <p><strong>Due Date:</strong> {{ assignment.dueDate | date: 'mediumDate' }} </p>
+                <p><strong>Due Date:</strong> {{ assignment.status }} </p>
                 <button class="claim-button">Claim</button>
             </div>
         </div>

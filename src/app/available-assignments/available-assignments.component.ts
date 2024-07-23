@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AvailableAssignmentsService } from '../services/available-assignments.service';
 import { CommonModule, DatePipe } from '@angular/common';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-available-assignments',
@@ -15,11 +16,15 @@ import { CommonModule, DatePipe } from '@angular/common';
 export class AvailableAssignmentsComponent implements OnInit {
   assignments: any[] = [];
   availableAssignments: any[] = [];
+  userId: string | null = null;
 
-  constructor(private availableAssignmentsService: AvailableAssignmentsService) {}
+  constructor(private availableAssignmentsService: AvailableAssignmentsService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadAssignments();
+
+    this.userId = this.authService.getUserId();
+    console.log('Logged-in User ID:', this.userId);
   }
 
   loadAssignments(): void {

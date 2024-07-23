@@ -9,6 +9,15 @@
     <div class="assignments">
         <h2>Pending Assignments</h2>
         <div class="cards">
+            <div class="card" *ngFor="let assignment of assignments">
+                <h3>{{ assignment.clientName }}</h3>
+                <p><strong>Topic:</strong> {{ assignment.blogTopic }}</p>
+                <p><strong>Due Date:</strong> {{ assignment.dueDate | date: 'mediumDate' }} </p>
+                <p><strong>Due Date:</strong> {{ assignment.status }} </p>
+                <button class="claim-button">Claim</button>
+            </div>
+        </div>
+        <!-- <div class="cards">
             <div class="card">
                 <h3>Client A</h3>
                 <p><strong>Topic:</strong> 1000 word blog about xxx</p>
@@ -27,7 +36,7 @@
                 <p><strong>Due Date:</strong> 6/22/24</p>
                 <div class="status">PENDING<br>submitted by Sally on 6/9</div>
             </div>
-        </div>
+        </div> -->
     </div>
     <a href="dashboard.html" [routerLink]="['/dashboard']" class="back-link">Back to Dashboard</a>
 </div>
