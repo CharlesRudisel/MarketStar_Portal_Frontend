@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { CompletedAssignmentsService } from '../services/completed-assignments.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { MyAssignmentsService } from '../services/my-assignments.service';
@@ -14,12 +13,12 @@ import { MyAssignmentsService } from '../services/my-assignments.service';
   styleUrl: './my-assignments.component.css',
   providers: [DatePipe]
 })
-export class MyAssignmentsComponent implements OnInit{
+export class MyAssignmentsComponent implements OnInit {
   assignments: any[] = [];
   myAssignments: any[] = [];
   userId: string | null = null;
 
-  constructor(private myAssignmentsService: MyAssignmentsService , private authService: AuthService) {}
+  constructor(private myAssignmentsService: MyAssignmentsService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadAssignments();
@@ -43,6 +42,6 @@ export class MyAssignmentsComponent implements OnInit{
   }
 
   filterAvailableAssignments(): void {
-    //this.myAssignments = this.assignments.filter(assignment => assignment.status == '');
+    this.myAssignments = this.assignments.filter(assignment => assignment.status === 'Pending' || assignment.status === 'Completed');
   }
 }

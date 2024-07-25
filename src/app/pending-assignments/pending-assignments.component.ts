@@ -17,6 +17,7 @@ export class PendingAssignmentsComponent implements OnInit {
   assignments: any[] = [];
   pendingAssignments: any[] = [];
   userId: string | null = null;
+  usernames: string[] = []; // Array to store usernames
 
   constructor(private pendingAssignmentsService: PendingAssignmentsService, private authService: AuthService) {}
 
@@ -33,7 +34,9 @@ export class PendingAssignmentsComponent implements OnInit {
         console.log('Raw Data:', data);
         this.assignments = data;
         this.filterAvailableAssignments();
+        this.extractUsernames();
         console.log('Filtered Assignments:', this.pendingAssignments);
+        console.log('Usernames:', this.usernames);
       },
       error => {
         console.error('Error loading assignments:', error);
@@ -42,6 +45,10 @@ export class PendingAssignmentsComponent implements OnInit {
   }
 
   filterAvailableAssignments(): void {
-    this.pendingAssignments = this.assignments.filter(assignment => assignment.status == 'Pending');
+    this.pendingAssignments = this.assignments.filter(assignment => assignment.status === 'Pending');
+  }
+
+  extractUsernames(): void {
+    this.usernames = this.assignments.map(assignment => assignment.user.username);
   }
 }

@@ -18,7 +18,7 @@ export class CompletedAssignmentsComponent implements OnInit {
   completedAssignments: any[] = [];
   userId: string | null = null;
 
-  constructor(private completedAssignmentsService: CompletedAssignmentsService , private authService: AuthService) {}
+  constructor(private completedAssignmentsService: CompletedAssignmentsService, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadAssignments();
@@ -42,6 +42,6 @@ export class CompletedAssignmentsComponent implements OnInit {
   }
 
   filterAvailableAssignments(): void {
-    this.completedAssignments = this.assignments.filter(assignment => assignment.status == 'Completed');
+    this.completedAssignments = this.assignments.filter(assignment => assignment.status === 'Completed');
   }
 }
