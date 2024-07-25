@@ -1,25 +1,26 @@
 <div class="available_assignments">
     <div class="header">
-        <img src="logo.png" alt="MarketStar Solutions Logo">
-        <div>
-            <h2>Welcome Sally</h2>
-            <p>example writer</p>
-        </div>
+      <img src="logo.png" alt="MarketStar Solutions Logo">
+      <div>
+        <h2>Welcome Sally</h2>
+        <p>example writer</p>
+      </div>
     </div>
-
+  
     <div class="assignments-container">
-        <h2>Available Assignments</h2>
-        
-        <div class="cards">
-            <div class="card" *ngFor="let assignment of assignments">
-                <h3>{{ assignment.clientName }}</h3>
-                <p><strong>Topic:</strong> {{ assignment.blogTopic }}</p>
-                <p><strong>Due Date:</strong> {{ assignment.dueDate | date: 'mediumDate' }} </p>
-                <p><strong>Due Date:</strong> {{ assignment.status }} </p>
-                <button class="claim-button">Claim</button>
-            </div>
+      <h2>Available Assignments</h2>
+      
+      <div class="cards">
+        <div class="card" *ngFor="let assignment of availableAssignments">
+          <h3>{{ assignment.clientName }}</h3>
+          <p><strong>Topic:</strong> {{ assignment.blogTopic }}</p>
+          <p><strong>Due Date:</strong> {{ assignment.dueDate | date: 'mediumDate' }}</p>
+          <p><strong>Status:</strong> {{ assignment.status }}</p>
+          <button class="claim-button" (click)="claimAssignment(assignment.id)">Claim</button>
         </div>
+      </div>
     </div>
-
+  
     <a href="dashboard.html" [routerLink]="['/dashboard']" class="back-link">Back to Dashboard</a>
-</div>
+  </div>
+  

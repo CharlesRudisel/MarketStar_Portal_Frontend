@@ -26,6 +26,6 @@ export const routes: Routes = [
   { path: 'grades', component: GradesComponent },
   { path: 'fileListComponent', component: FileListComponent },
   { path: 'writer-success', component: WriterSuccessComponent },
-  { path: 'FileListComponent', component: FileListComponent },
+  { path: 'fileListComponent/:clientId', component: FileListComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full' },
 ];

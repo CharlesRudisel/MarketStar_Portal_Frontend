@@ -42,6 +42,23 @@ export class AvailableAssignmentsComponent implements OnInit {
   }
 
   filterAvailableAssignments(): void {
-    this.availableAssignments = this.assignments.filter(assignment => assignment.status == 'Available');
+    this.availableAssignments = this.assignments.filter(assignment => assignment.status === 'Available');
+  }
+
+  claimAssignment(assignmentId: number): void {
+    if (true) {
+      this.availableAssignmentsService.updateAssignmentStatus(assignmentId, 'InProgress').subscribe(
+        response => {
+          console.log('Assignment status updated successfully', response);
+          // Optionally, refresh the list of assignments
+          this.loadAssignments();
+        },
+        error => {
+          console.error('Error updating assignment status', error);
+        }
+      );
+    } else {
+      console.error('User ID is not available.');
+    }
   }
 }

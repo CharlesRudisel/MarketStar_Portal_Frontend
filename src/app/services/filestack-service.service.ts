@@ -9,12 +9,20 @@ import * as filestack from 'filestack-js';
 })
 export class FileService {
 
+
+ getFilesByClientId(clientId: number): Observable<any> {
+    return this.http.get<any[]>(`${this.baseUrl}/client/${clientId}`);
+  }
+
   private apiUrl = '/api/documents'; // Adjust the URL if needed
-  //private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io';
-  private baseUrl = 'http://localhost:8080'
+  private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io';
+  //private baseUrl = 'http://localhost:8080'
   private client = filestack.init('Ai1tHENWgRYeArXn9HJrNz');
 
   constructor(private http: HttpClient) {}
+
+  
+  
 
   openPicker() {
     //alert("TEST")
@@ -43,10 +51,10 @@ export class FileService {
 
       console.log('Request Body:', body); // Log the request body
 
-    return this.http.post(`http://localhost:8080/api/documents/upload-url/1`, JSON.stringify(body), { headers });
+    return this.http.post(`https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/api/documents/upload-url/1`, JSON.stringify(body), { headers });
   }
 
   getFileUrls(clientId: number): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8080/api/documents/client/1`);
+    return this.http.get<any[]>(`https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/api/documents/client/1`);
   }
 }

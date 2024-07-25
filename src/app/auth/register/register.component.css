@@ -1,75 +1,5 @@
-/* Container and Row */
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-}
-
-.row {
-  justify-content: center;
-}
-
-/* Card */
-.card {
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-  background-color: #28a745;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: bold;
-  text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-/* Card Body */
-.card-body {
-  padding: 30px;
-}
-
-/* Form Group */
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.form-control {
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1rem;
-  border: 1px solid #ced4da;
-}
-
-.form-control:focus {
-  border-color: #28a745;
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-}
-
-/* Button */
-.btn-primary {
-  background-color: #28a745;
-  border-color: #28a745;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.btn-primary:hover {
-  background-color: #218838;
-  border-color: #218838;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-/*==================================================*/
-
-.register-container-main{
+/* Main Container */
+.register-container-main {
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
@@ -79,7 +9,7 @@
   background-color: #f9f9f9;
 }
 
-
+/* Register Container */
 .register-container {
   text-align: center;
   background: #fff;
@@ -97,6 +27,7 @@
   margin-bottom: 20px;
 }
 
+/* Input Fields */
 .input-field {
   width: 100%;
   padding: 10px;
@@ -106,6 +37,13 @@
   box-sizing: border-box;
 }
 
+.input-field:focus {
+  outline: none;
+  border-color: #8a2be2;
+  box-shadow: 0 0 5px rgba(138, 43, 226, 0.5);
+}
+
+/* Register Button */
 .register-button {
   padding: 10px 20px;
   background-color: #8a2be2;

@@ -34,7 +34,7 @@ export class PendingAssignmentsComponent implements OnInit {
         console.log('Raw Data:', data);
         this.assignments = data;
         this.filterAvailableAssignments();
-        this.extractUsernames();
+        //this.extractUsernames();
         console.log('Filtered Assignments:', this.pendingAssignments);
         console.log('Usernames:', this.usernames);
       },

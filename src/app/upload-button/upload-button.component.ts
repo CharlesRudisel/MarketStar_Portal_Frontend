@@ -1,12 +1,11 @@
-// src/app/components/upload-button/upload-button.component.ts
 import { Component } from '@angular/core';
 import { FileService } from '../services/filestack-service.service';
-
 
 @Component({
   selector: 'app-upload-button',
   templateUrl: './upload-button.component.html',
-  styleUrls: ['./upload-button.component.css']
+  styleUrls: ['./upload-button.component.css'],
+  standalone: true
 })
 export class UploadButtonComponent {
 
@@ -16,11 +15,11 @@ export class UploadButtonComponent {
   ) {}
 
   upload(clientId: number, uploadedBy: string) {
-    this.filestackService.openPicker().then((result:any) => {
+    this.filestackService.openPicker().then((result: any) => {
       if (result && result.filesUploaded && result.filesUploaded.length > 0) {
         const fileUrl = this.filestackService.getUploadedFileUrl(result);
         const fileName = result.filesUploaded[0].filename;
-        alert(`File uploaded: ${fileUrl}`); // Test alert
+        //alert(`File uploaded: ${fileUrl}`); // Test alert
         this.saveFileUrl(clientId, fileUrl, fileName);
       } else {
         alert('No files uploaded'); // Test alert
@@ -36,6 +35,7 @@ export class UploadButtonComponent {
       next: (response) => {
         console.log('File URL saved successfully', response);
         alert('File URL saved successfully'); // Test alert
+        window.location.reload(); // Refresh the entire page
       },
       error: (error) => {
         console.error('Error saving file URL', error);

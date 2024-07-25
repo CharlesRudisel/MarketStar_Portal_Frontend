@@ -1,20 +1,20 @@
 <div class="client-background-container">
     <div class="header">
-        <img src="logo.png" alt="MarketStar Solutions Logo">
-        <div>
-            <h2>Welcome Sally</h2>
-        </div>
+      <img src="logo.png" alt="MarketStar Solutions Logo">
+      <div>
+        <h2>Welcome Sally</h2>
+      </div>
     </div>
-
+  
     <div class="client-backgrounds">
-        <h2>Client Backgrounds</h2>
-        <div class="buttons">
-            <button [routerLink]="['/fileListComponent']" class="button">Client A</button>
-            <button [routerLink]="['/fileListComponent']" class="button">Client B</button>
-            <button [routerLink]="['/fileListComponent']" class="button">Client C</button>
-            <button [routerLink]="['/fileListComponent']" class="button">Client E</button>
-            <button [routerLink]="['/fileListComponent']" class="button">Client F</button>
-        </div>
+      <h2>Client Backgrounds</h2>
+      <div class="buttons">
+        <button *ngFor="let client of clients" [routerLink]="['/fileListComponent', client.id]" class="button">
+          {{ client.name }}
+        </button>
+      </div>
     </div>
+    
     <a href="dashboard.html" [routerLink]="['/dashboard']" class="back-link">Back to Dashboard</a>
-</div>
+  </div>
+  
