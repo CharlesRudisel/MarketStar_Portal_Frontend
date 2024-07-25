@@ -1,0 +1,14 @@
+<div class="file-list">
+  <h2>Files Associated with Customer X</h2>
+  <!-- <button (click)="onRetrieveFiles()">Retrieve Files</button> -->
+  <ul class="cards">
+    <li class="card" *ngFor="let file of files">
+      <a [href]="file.fileUrl" target="_blank"> {{ file.documentName }}</a>
+      <br>
+      <!-- <a [href]="file.fileUrl" target="_blank">{{ file.documentName }}</a> -->
+    </li>
+  </ul>
+
+  <a href="dashboard.html" [routerLink]="['/dashboard']" class="back-link">Back to Dashboard</a>
+</div>
+

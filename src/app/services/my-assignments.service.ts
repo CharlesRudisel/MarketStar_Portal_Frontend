@@ -8,7 +8,7 @@ import { AuthService } from './auth.service'; // Adjust the import path as neces
   providedIn: 'root'
 })
 export class MyAssignmentsService {
-  private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/api/assignments/user';
+  private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/api/assignments/user/progress';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 

@@ -10,6 +10,8 @@ import { MyAssignmentsComponent } from './my-assignments/my-assignments.componen
 import { CompanyBackgroundsComponent } from './company-backgrounds/company-backgrounds.component';
 import { GradesComponent } from './grades/grades.component';
 import { WriterSuccessComponent } from './writer-success/writer-success.component';
+import { UploadButtonComponent } from './upload-button/upload-button.component';
+import { FileListComponent } from './file-list/file-list.component';
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,8 +21,11 @@ export const routes: Routes = [
   { path: 'pending-assignments', component: PendingAssignmentsComponent },
   { path: 'completed-assignments', component: CompletedAssignmentsComponent },
   { path: 'my-assignments', component: MyAssignmentsComponent },
-  { path: 'company-backgrounds', component: CompanyBackgroundsComponent },
+  { path: 'company-backgrounds', component: CompanyBackgroundsComponent  },
+  { path: 'UploadButtonComponent ', component: UploadButtonComponent  },
   { path: 'grades', component: GradesComponent },
+  { path: 'fileListComponent', component: FileListComponent },
   { path: 'writer-success', component: WriterSuccessComponent },
+  { path: 'FileListComponent', component: FileListComponent },
   { path: '', redirectTo: '/register', pathMatch: 'full' },
 ];
