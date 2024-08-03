@@ -47,7 +47,7 @@ export class AvailableAssignmentsComponent implements OnInit {
 
   claimAssignment(assignmentId: number): void {
     if (true) {
-      this.availableAssignmentsService.updateAssignmentStatus(assignmentId, 'InProgress').subscribe(
+      this.availableAssignmentsService.updateAssignmentStatus(assignmentId, 'In Progress').subscribe(
         response => {
           console.log('Assignment status updated successfully', response);
           // Optionally, refresh the list of assignments
