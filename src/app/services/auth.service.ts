@@ -27,9 +27,9 @@ interface AuthResponse {
 })
 export class AuthService {
 
-  //private baseUrl = 'https://spring-app-20240802225650.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/auth';
+  private baseUrl = 'https://spring-app-20240802225650.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/auth';
   //https://spring-app-20240802225650.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io
-  private baseUrl = 'http://localhost:8080/auth'
+  //private baseUrl = 'http://localhost:8080/auth'
   private tokenKey = 'authToken';
   private userKey = 'authUser';
 
