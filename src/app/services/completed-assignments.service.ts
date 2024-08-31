@@ -8,8 +8,10 @@ import { AuthService } from './auth.service'; // Adjust the import path as neces
   providedIn: 'root'
 })
 export class CompletedAssignmentsService {
-  private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/api/assignments/user/completed';
-
+ 
+  // private baseUrl = 'https://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/api/assignments/user/completed';
+  private baseUrl = 'https://localhost:8443/api/assignments/user/completed';
+  private clientUrl = "https://localhost:8443/api/clients";
   constructor(private http: HttpClient, private authService: AuthService) {}
 
   getCompletedAssignments(): Observable<any> {
@@ -30,5 +32,12 @@ export class CompletedAssignmentsService {
      return this.http.get(url).pipe(
        tap((response: any) => console.log('API Response:', response))
      );
+  }
+
+  getClients() : Observable<any> {
+    
+    return this.http.get(this.clientUrl).pipe(
+      tap((response:any) => console.log("Client Api Response : ",response))
+    );
   }
 }

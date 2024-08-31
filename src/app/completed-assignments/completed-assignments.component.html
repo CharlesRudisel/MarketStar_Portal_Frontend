@@ -1,6 +1,6 @@
 <div class="completed-assignemnts-container">
     <div class="header">
-        <img src="logo.png" alt="MarketStar Solutions Logo">
+        <img src="assets/images/marketStar_logo.png" alt="MarketStar Solutions Logo">
         <div>
             <h2>Welcome Sally</h2>
             <p>example writer</p>
@@ -10,20 +10,23 @@
     <div class="assignments">
         <h2>Completed Assignments</h2>
         <div class="filters">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (ngModelChange)="onSearchQueryChange()">
             <select>
                 <option>Client</option>
+                <option *ngFor="let client of uniqueClients">{{client.name}}</option>
+                <!-- <option>{{client}}</option> -->
             </select>
             <select>
                 <option>Date</option>
             </select>
             <select>
                 <option>Author</option>
+                <option *ngFor="let author of uniqueAuthors">{{author}}</option>
             </select>
         </div>
 
         <div class="cards">
-            <div class="card" *ngFor="let assignment of assignments">
+            <div class="card" *ngFor="let assignment of completedAssignments">
                 <h3>{{ assignment.clientName }}</h3>
                 <p><strong>Topic:</strong> {{ assignment.blogTopic }}</p>
                 <p><strong>Due Date:</strong> {{ assignment.dueDate | date: 'mediumDate' }} </p>

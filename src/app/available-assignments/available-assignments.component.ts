@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AvailableAssignmentsService } from '../services/available-assignments.service';
 import { CommonModule, DatePipe } from '@angular/common';
 import { AuthService } from '../services/auth.service';
+import { ReusableCardComponent } from '../components/reusable-card/reusable-card.component'; 
+import { TopNavComponent } from '../components/top-nav/top-nav.component';
 
 @Component({
   selector: 'app-available-assignments',
   standalone: true,
-  imports: [RouterModule, HttpClientModule, CommonModule],
+  imports: [RouterModule, HttpClientModule, CommonModule,ReusableCardComponent , TopNavComponent],
   templateUrl: './available-assignments.component.html',
   styleUrls: ['./available-assignments.component.css'],
   providers: [DatePipe]
@@ -17,6 +19,8 @@ export class AvailableAssignmentsComponent implements OnInit {
   assignments: any[] = [];
   availableAssignments: any[] = [];
   userId: string | null = null;
+  loading : boolean = false;
+  successMessage : string = '';
 
   constructor(private availableAssignmentsService: AvailableAssignmentsService, private authService: AuthService) {}
 
@@ -46,19 +50,29 @@ export class AvailableAssignmentsComponent implements OnInit {
   }
 
   claimAssignment(assignmentId: number): void {
-    if (true) {
-      this.availableAssignmentsService.updateAssignmentStatus(assignmentId, 'In Progress').subscribe(
+    this.loading = true;
+    this.successMessage = '';
+
+    this.availableAssignmentsService.updateAssignmentStatus(assignmentId, 'In Progress').subscribe(
         response => {
-          console.log('Assignment status updated successfully', response);
-          // Optionally, refresh the list of assignments
-          this.loadAssignments();
+            console.log('Assignment status updated successfully', response);
+            this.loading = false;
+            this.successMessage = "Assignment Claimed Successfully!";
+            // Optionally, refresh the list of assignments
+            this.loadAssignments();
+            this.clearSuccessMessage();
         },
         error => {
-          console.error('Error updating assignment status', error);
+            console.error('Error updating assignment status', error);
+            this.loading = false;
+            this.successMessage = "Something went wrong!";
         }
-      );
-    } else {
-      console.error('User ID is not available.');
-    }
+    );
+}
+
+  clearSuccessMessage() : void{
+    setTimeout(() => {
+      this.successMessage = '';
+    },3000);
   }
 }

@@ -1,0 +1,11 @@
+ 
+<div class="card">
+    <h3>{{clientName }}</h3>
+    <p><strong>Topic:</strong> {{blogTopic }}</p>
+    <p><strong>Due Date:</strong> {{dueDate | date: 'mediumDate' }}</p>
+    <p><strong>Status:</strong> {{status }}</p>
+    <button class="claim-button" (click)="onButtonClick()">{{buttonText}}</button>
+</div>
+
+
+

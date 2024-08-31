@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule, DatePipe } from '@angular/common';
 import { AuthService } from '../services/auth.service';
 import { MyAssignmentsService } from '../services/my-assignments.service';
+import { ReusableCardComponent } from '../components/reusable-card/reusable-card.component'; 
+import { TopNavComponent } from '../components/top-nav/top-nav.component';
 
 @Component({
   selector: 'app-my-assignments',
   standalone: true,
-  imports: [RouterModule, HttpClientModule, CommonModule],
+  imports: [RouterModule, HttpClientModule, CommonModule , ReusableCardComponent , TopNavComponent],
   templateUrl: './my-assignments.component.html',
   styleUrl: './my-assignments.component.css',
   providers: [DatePipe]

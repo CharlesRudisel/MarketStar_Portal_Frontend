@@ -27,8 +27,11 @@ interface AuthResponse {
 })
 export class AuthService {
 
-  private baseUrl = 'http://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/auth';
-  //private baseUrl = 'http://localhost:8080/auth'
+  //private baseUrl = 'http://spring-app-20240712213542.wonderfulisland-fee7ef32.eastus2.azurecontainerapps.io/auth';
+  //private baseUrl = 'https://localhost:8080/auth'
+    //private baseUrl = 'https://upwork-backend-8-33e3fb0de941.herokuapp.com/auth'
+    baseUrl= 'https://localhost:8443/auth'
+
   private tokenKey = 'authToken';
   private userKey = 'authUser';
 
@@ -77,7 +80,7 @@ export class AuthService {
 
   getUserId(): string | null {
     const user = this.getUser();
-    //console.log("==========" + user)
+    // console.log("==========" + user?.userId);
     return user ? user.id : null;
   }
 

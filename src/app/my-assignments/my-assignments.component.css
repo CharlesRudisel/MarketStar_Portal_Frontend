@@ -8,30 +8,6 @@
     background-color: #f9f9f9;
 }
 
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.header img {
-    height: 60px;
-}
-
-.header div {
-    text-align: right;
-}
-
-.header div h2 {
-    margin: 0;
-}
-
-.header div p {
-    margin: 0;
-    font-size: 14px;
-}
 
 .assignments {
     text-align: center;
@@ -85,4 +61,5 @@
     text-decoration: none;
     color: #8a2be2;
     font-weight: bold;
+
 }
